@@ -1,7 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print, prefer_const_constructors_in_immutables, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print, prefer_const_constructors_in_immutables, use_build_context_synchronously, must_be_immutable
 import 'dart:developer';
 import 'package:chat_app/constants/constant.dart';
-import 'package:chat_app/cubits/login_cubit.dart';
+import 'package:chat_app/cubits/login_cubit/login_cubit.dart';
 import 'package:chat_app/helper/snackbar.dart';
 import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/pages/register_page.dart';
@@ -14,6 +14,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
+
   bool isLoading = false;
   String? email, password;
 
