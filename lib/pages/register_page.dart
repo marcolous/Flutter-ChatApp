@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print, prefer_const_constructors_in_immutables, use_build_context_synchronously, must_be_immutable
 import 'dart:developer';
 
+import 'package:chat_app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:chat_app/constants/constant.dart';
-import 'package:chat_app/cubits/auth_cubit/auth_cubit.dart';
 import 'package:chat_app/helper/snackbar.dart';
 import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/windgets/text_form_field_widget.dart';
@@ -23,7 +23,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is RegisterLoading) {
           isLoading = true;
@@ -108,8 +108,9 @@ class RegisterPage extends StatelessWidget {
                         onPressed: () async {
                           isLoading = true;
                           if (formKey.currentState!.validate()) {
-                            BlocProvider.of<AuthCubit>(context).registerUser(
-                                email: email!, password: password!);
+                            BlocProvider.of<AuthBloc>(context).add(
+                                RegisterEvent(
+                                    email: email!, password: password!));
                           }
                           isLoading = false;
                         },
