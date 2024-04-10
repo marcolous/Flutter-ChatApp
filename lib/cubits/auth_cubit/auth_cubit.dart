@@ -1,13 +1,34 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-part 'register_state.dart';
+part 'auth_state.dart';
 
-class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit() : super(RegisterInitial());
+class AuthCubit extends Cubit<AuthState> {
+  AuthCubit() : super(AuthInitial());
 
+
+Future<void> login({required String email, required String password}) async {
+    emit(LoginLoading());
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      emit(LoginSuccess());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email') {
+        emit(LoginFailure(errMessage: e.code));
+        //showSnackBar(context, 'No user found for that email.');
+      } else if (e.code == 'invalid-credential') {
+        emit(LoginFailure(errMessage: e.code));
+        //showSnackBar(context, 'Wrong password provided for that user.');
+      }
+    } catch (e) {
+      emit(LoginFailure(errMessage: e.toString()));
+    }
+  }
+
+
+  
   Future<void> registerUser(
       {required String email, required String password}) async {
     emit(RegisterLoading());
@@ -30,4 +51,6 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterFailure(errMessage: e.toString()));
     }
   }
+
+
 }
