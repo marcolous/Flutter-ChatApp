@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print, prefer_const_constructors_in_immutables, use_build_context_synchronously, must_be_immutable
 import 'dart:developer';
 import 'package:chat_app/constants/constant.dart';
+import 'package:chat_app/cubits/chat/chat_cubit.dart';
 import 'package:chat_app/cubits/login_cubit/login_cubit.dart';
 import 'package:chat_app/helper/snackbar.dart';
 import 'package:chat_app/pages/chat_page.dart';
@@ -28,6 +29,7 @@ class LoginPage extends StatelessWidget {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSuccess) {
+          BlocProvider.of<ChatCubit>(context).getMessages();
           Navigator.push(
             context,
             CupertinoPageRoute(builder: (context) => ChatPage(email: email)),
@@ -35,6 +37,7 @@ class LoginPage extends StatelessWidget {
           isLoading = false;
         } else if (state is LoginFailure) {
           showSnackBar(context, state.errMessage);
+          isLoading = false;
         }
       },
       builder: (context, state) => ModalProgressHUD(

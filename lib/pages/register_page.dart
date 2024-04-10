@@ -33,6 +33,7 @@ class RegisterPage extends StatelessWidget {
           isLoading = false;
         } else if (state is RegisterFailure) {
           showSnackBar(context, state.errMessage);
+          isLoading = false;
         }
       },
       builder: (context, state) {
