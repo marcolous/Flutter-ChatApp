@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginLoading) {
           isLoading = true;
@@ -30,11 +30,12 @@ class LoginPage extends StatelessWidget {
             context,
             CupertinoPageRoute(builder: (context) => ChatPage(email: email)),
           );
+          isLoading = false;
         } else if (state is LoginFailure) {
-          showSnackBar(context, 'Something went wrong!');
+          showSnackBar(context, state.errMessage);
         }
       },
-      child: ModalProgressHUD(
+      builder: (context, state) => ModalProgressHUD(
         inAsyncCall: isLoading,
         child: CupertinoPageScaffold(
           navigationBar: CupertinoNavigationBar(
@@ -98,23 +99,6 @@ class LoginPage extends StatelessWidget {
                         if (formKey.currentState!.validate()) {
                           BlocProvider.of<LoginCubit>(context)
                               .login(email: email!, password: password!);
-                          // try {
-                          //   await login();
-                          //   showSnackBar(context, 'Success');
-                          //   Navigator.push(
-                          //     context,
-                          //     CupertinoPageRoute(
-                          //         builder: (context) => ChatPage(email: email)),
-                          //   );
-                          // } on FirebaseAuthException catch (e) {
-                          //   if (e.code == 'invalid-email') {
-                          //     showSnackBar(
-                          //         context, 'No user found for that email.');
-                          //   } else if (e.code == 'invalid-credential') {
-                          //     showSnackBar(context,
-                          //         'Wrong password provided for that user.');
-                          //   }
-                          // }
                         }
                         isLoading = false;
                       },
