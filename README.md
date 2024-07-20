@@ -38,16 +38,16 @@ ChatApp is a Flutter-based chat application with authentication and real-time me
 <div style="display: flex; flex-wrap: wrap;">
     <div style="margin: 10px;">
         <p>Login Screen</p>
-        <img src="screenshots/1.png" alt="Login Screen" width="200"/>
+        <img src="screenshots/1.png" alt="Login Screen" width="250"/>
     </div>
     <div style="margin: 10px;">
         <p>Register Screen</p>
-        <img src="screenshots/2.png" alt="Register Screen" width="200"/>
+        <img src="screenshots/2.png" alt="Register Screen" width="250"/>
     </div>
     <div style="margin: 10px;">
         <p>Chat Screen</p>
-        <img src="screenshots/3.png" alt="Chat Screen" width="200"/>
-        <img src="screenshots/4.png" alt="Chat Screen" width="200"/>
+        <img src="screenshots/3.png" alt="Chat Screen" width="250"/>
+        <img src="screenshots/4.png" alt="Chat Screen" width="250"/>
     </div>
 </div>
 
