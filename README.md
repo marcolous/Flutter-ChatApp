@@ -1,4 +1,3 @@
-
 # ChatApp
 
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev/)
@@ -7,48 +6,48 @@ ChatApp is a Flutter-based chat application with authentication and real-time me
 
 ## Features
 
-- **Login Screen**: 
+- **Login Screen**:
   - Users can log in with their email and password.
   - Handles errors such as "email does not exist" or "password does not match".
-  
-- **Register Screen**: 
+- **Register Screen**:
+
   - Users can register with their email and password.
   - Handles errors such as "email already in use" or "weak password".
 
-- **Chat Screen**: 
+- **Chat Screen**:
   - Displays chat messages using Flutter Chat Bubble.
   - Allows sending and receiving real-time messages.
 
 ## Packages Used
 
-- [bloc: ^8.1.4](https://pub.dev/packages/bloc)
-- [chat_bubbles: ^1.6.0](https://pub.dev/packages/chat_bubbles)
-- [cloud_firestore: ^4.15.8](https://pub.dev/packages/cloud_firestore)
-- [cupertino_icons: ^1.0.2](https://pub.dev/packages/cupertino_icons)
-- [firebase_auth: ^4.17.8](https://pub.dev/packages/firebase_auth)
-- [firebase_core: ^2.27.0](https://pub.dev/packages/firebase_core)
-- [flutter: sdk: flutter](https://flutter.dev/)
-- [flutter_bloc: ^8.1.5](https://pub.dev/packages/flutter_bloc)
-- [flutter_chat_bubble: ^2.0.2](https://pub.dev/packages/flutter_chat_bubble)
-- [flutter_chat_ui: ^1.6.12](https://pub.dev/packages/flutter_chat_ui)
-- [meta: ^1.10.0](https://pub.dev/packages/meta)
-- [modal_progress_hud_nsn: ^0.5.1](https://pub.dev/packages/modal_progress_hud_nsn)
+- `bloc`: ^8.1.4
+- `chat_bubbles`: ^1.6.0
+- `cloud_firestore`: ^4.15.8
+- `cupertino_icons`: ^1.0.2
+- `firebase_auth`: ^4.17.8
+- `firebase_core`: ^2.27.0
+- `flutter: sdk`: flutter
+- `flutter_bloc`: ^8.1.5
+- `flutter_chat_bubble`: ^2.0.2
+- `flutter_chat_ui`: ^1.6.12
+- `meta`: ^1.10.0
+- `modal_progress_hud_nsn`: ^0.5.1
 
 ## Screenshots
 
 <div style="display: flex; flex-wrap: wrap;">
     <div style="margin: 10px;">
         <p>Login Screen</p>
-        <img src="screenshots/1.png" alt="Login Screen" width="300"/>
+        <img src="screenshots/1.png" alt="Login Screen" width="200"/>
     </div>
     <div style="margin: 10px;">
         <p>Register Screen</p>
-        <img src="screenshots/2.png" alt="Register Screen" width="300"/>
+        <img src="screenshots/2.png" alt="Register Screen" width="200"/>
     </div>
     <div style="margin: 10px;">
         <p>Chat Screen</p>
-        <img src="screenshots/3.png" alt="Chat Screen" width="300"/>
-        <img src="screenshots/4.png" alt="Chat Screen" width="300"/>
+        <img src="screenshots/3.png" alt="Chat Screen" width="200"/>
+        <img src="screenshots/4.png" alt="Chat Screen" width="200"/>
     </div>
 </div>
 
